@@ -1,2 +1,9 @@
-packages: 
+packages:
   - "apps/*"
+  - "libs"
+  - "ui"
+  - "auth"
+  - "libs/*"
+  - 'apps/**'
+  - 'libs/**'
+

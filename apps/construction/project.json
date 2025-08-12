@@ -1,0 +1,22 @@
+{
+  "name": "construction",
+  "root": "apps/construction",
+  "sourceRoot": "apps/construction/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nx/vite:build",
+      "options": {
+        "outputPath": "dist/apps/construction",
+        "configFile": "apps/construction/vite.config.ts"
+      }
+    },
+    "serve": {
+      "executor": "@nx/vite:dev-server",
+      "options": {
+        "buildTarget": "construction:build"
+      }
+    }
+  },
+  "tags": []
+}

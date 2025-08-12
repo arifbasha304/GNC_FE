@@ -2,6 +2,7 @@
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
     "outDir": "dist",
+    "rootDir": "../../",
     "lib": [
       "DOM",
       "DOM.Iterable",
@@ -17,7 +18,6 @@
     "resolveJsonModule": true,
     "allowJs": true,
     "forceConsistentCasingInFileNames": true,
-    "rootDir": "app",
     "tsBuildInfoFile": "dist/tsconfig.app.tsbuildinfo"
   },
   "include": [
@@ -28,7 +28,11 @@
     "**/.server/**/*.ts",
     "**/.server/**/*.tsx",
     "**/.client/**/*.ts",
-    "**/.client/**/*.tsx"
+    "**/.client/**/*.tsx",
+    "src/**/*.ts", 
+    "src/**/*.tsx",
+    "src/**/*", 
+    "../../libs/**/*"
   ],
   "exclude": [
     "out-tsc",

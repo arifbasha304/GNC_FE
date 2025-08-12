@@ -1,15 +1,12 @@
-// Uncomment this line to use CSS modules
-// import styles from './app.module.scss';
-import NxWelcome from "./nx-welcome";
+import ProjectCostEstimator from './components/project-cost-estimator/project-cost-estimator';
 
-export function App() {
+function App() {
   return (
     <div>
-      <NxWelcome title="@./construction"/>
+      <h1>Construction App</h1>
+      <ProjectCostEstimator />
     </div>
   );
 }
 
 export default App;
-
-

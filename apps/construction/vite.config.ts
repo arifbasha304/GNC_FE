@@ -1,23 +1,23 @@
-/// <reference types='vitest' />
+/// <reference types="vitest" />
 import { defineConfig } from 'vite';
+import { nxViteTsPaths } from '@nx/vite/plugins/nx-tsconfig-paths.plugin';
 import { reactRouter } from '@react-router/dev/vite';
 
-export default defineConfig(() => ({
+export default defineConfig({
   root: __dirname,
   cacheDir: '../../node_modules/.vite/apps/construction',
-  server:{
+  server: {
     port: 4200,
     host: 'localhost',
   },
-  preview:{
+  preview: {
     port: 4300,
     host: 'localhost',
   },
-  plugins: [!process.env.VITEST && reactRouter()],
-  // Uncomment this if you are using workers.
-  // worker: {
-  //  plugins: [ nxViteTsPaths() ],
-  // },
+  plugins: [
+    nxViteTsPaths(),  // <<< Use Nx plugin here
+    reactRouter()
+  ],
   build: {
     outDir: './dist',
     emptyOutDir: true,
@@ -26,4 +26,4 @@ export default defineConfig(() => ({
       transformMixedEsModules: true,
     },
   },
-}));
+});

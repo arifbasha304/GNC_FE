@@ -82,8 +82,17 @@
       },
       "library": {
         "style": "scss",
-        "linter": "eslint"
+        "linter": "eslint",
+        "unitTestRunner": "none"
       }
     }
+  },
+  "workspaceLayout": {
+    "appsDir": "apps",
+    "libsDir": "libs"
+  },
+  "projects": {
+    "construction": "apps/construction",
+    "construction-e2e": "apps/construction-e2e"
   }
 }

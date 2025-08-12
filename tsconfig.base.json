@@ -1,5 +1,10 @@
 {
   "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "ui": ["libs/ui/src/index.ts"],
+      "auth": ["libs/auth/src/index.ts"]
+    },
     "composite": true,
     "declarationMap": true,
     "emitDeclarationOnly": true,
@@ -16,6 +21,7 @@
     "skipLibCheck": true,
     "strict": true,
     "target": "es2022",
-    "customConditions": ["development"]
+    "customConditions": ["development"],
+    "include": ["**/*.ts", "**/*.tsx", "**/*.js", "**/*.jsx"]
   }
 }
