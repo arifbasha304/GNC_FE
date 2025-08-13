@@ -1,7 +1,14 @@
-import { type RouteConfig, index, route } from "@react-router/dev/routes";
+// For example, if you're writing your own simple config system:
+import { lazy } from 'react';
 
-export default [
-  index('./app.tsx'),
-  route('about', './components/project-cost-estimator/about.tsx'),
-  route('project-cost-estimator', './components/project-cost-estimator/project-cost-estimator.tsx'),
-] satisfies RouteConfig;
+
+export const routes = [
+  {
+    path: '/',
+    element: lazy(() => import('./app')),
+  },
+  {
+    path: '/project-cost-estimator',
+    element: lazy(() => import('./components/project-cost-estimator/project-cost-estimator')),
+  },
+];

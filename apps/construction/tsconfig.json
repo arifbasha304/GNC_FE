@@ -1,17 +1,13 @@
 {
-  "files": [],
-  "include": [],
-  "references": [
-    {
-      "path": "./tsconfig.app.json"
-    }
-  ],
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
-    "jsx": "react-jsx",
-    "moduleResolution": "bundler",
-    "types": [
-      "@react-router/node"
-    ]
-  }
+    "types": ["node", "jest", "@testing-library/jest-dom"]
+  },
+  "include": [
+    "app/**/*",
+    "components/**/*",
+    "routes.tsx",
+    "../../libs/ui/src/**/*",
+    "../../libs/auth/src/**/*"
+  ]
 }

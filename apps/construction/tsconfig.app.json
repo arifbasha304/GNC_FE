@@ -10,7 +10,6 @@
     ],
     "types": [
       "@react-router/node",
-      "vite/client",
       "node"
     ],
     "esModuleInterop": true,
