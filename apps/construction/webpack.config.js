@@ -1,19 +1,39 @@
+
+
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { ModuleFederationPlugin } = require('webpack').container;
 
 module.exports = {
-    mode: 'development', // or 'production'
+    mode: 'development',
     entry: path.resolve(__dirname, './app/entry.client.tsx'),
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: 'bundle.js',
-        publicPath: '/', // important for SPA fallback
+        publicPath: 'auto', // Let Webpack figure out the URL at runtime
     },
     plugins: [
-    new HtmlWebpackPlugin({
-      template: './apps/construction/app/index.html', // or wherever your template is
-    }),
-  ],
+        new ModuleFederationPlugin({
+            name: 'construction_app', // Remote app name
+            filename: 'remoteEntry.js', // Endpoint exposed to others
+            exposes: {
+                './ProjectCostEstimator': './apps/construction/app/components/project-cost-estimator/project-cost-estimator.tsx', // Expose the component for remote usage
+            },
+            shared: {
+                react: {
+                    singleton: true,
+                    requiredVersion: '^18.2.0',
+                },
+                'react-dom': {
+                    singleton: true,
+                    requiredVersion: '^18.2.0',
+                },
+            },
+        }),
+        new HtmlWebpackPlugin({
+            template: './apps/construction/app/index.html',
+        }),
+    ],
     resolve: {
         extensions: ['.tsx', '.ts', '.js'],
         alias: {

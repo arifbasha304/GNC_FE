@@ -9,8 +9,6 @@ export default [
         "**/dist",
         "**/build",
         "**/.react-router",
-        "**/vite.config.*.timestamp*",
-        "**/vitest.config.*.timestamp*",
         "**/test-output"
       ]
     },

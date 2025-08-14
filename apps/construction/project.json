@@ -5,18 +5,19 @@
   "projectType": "application",
   "targets": {
     "build": {
-      "executor": "@nx/vite:build",
+      "executor": "@nrwl/webpack:webpack",
       "options": {
         "outputPath": "dist/apps/construction",
-        "configFile": "apps/construction/vite.config.ts"
+        "webpackConfig": "apps/construction/webpack.config.js"
       }
     },
     "serve": {
-      "executor": "@nx/vite:dev-server",
+      "executor": "@nrwl/webpack:dev-server",
       "options": {
-        "buildTarget": "construction:build"
+        "buildTarget": "construction:build",
+        "port": 8080,
+        "open": true
       }
     }
-  },
-  "tags": []
+  }
 }
