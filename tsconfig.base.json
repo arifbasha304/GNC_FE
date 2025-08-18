@@ -2,20 +2,19 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "ui": ["libs/ui/src/index.ts"],
-      "auth": ["libs/auth/src/index.ts"]
+      "@libs/ui": ["libs/ui/src/index.ts"],
+      "@libs/auth": ["libs/auth/src/index.ts"]
     },
     "composite": true,
-    "declarationMap": true,
-    "emitDeclarationOnly": false,
-    "importHelpers": true,
-    "isolatedModules": true,
+    "declaration": true,
     "lib": ["es2022", "dom"],
     "module": "esnext",
     "moduleResolution": "node",
+    "target": "es2022",
     "jsx": "react-jsx",
-    "skipLibCheck": true,
     "strict": true,
-    "target": "es2022"
+    "skipLibCheck": true,
+    "importHelpers": true,
+    "isolatedModules": true
   }
 }

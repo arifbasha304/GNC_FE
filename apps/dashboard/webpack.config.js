@@ -1,8 +1,6 @@
-
-
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { ModuleFederationPlugin } = require('webpack').container;
+const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const { ModuleFederationPlugin } = require("webpack").container;
 
 module.exports = {
   mode: "development",
@@ -10,29 +8,30 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "bundle.js",
-    publicPath: "auto", // Let Webpack figure out the URL at runtime
+    publicPath: "auto", // Let Webpack figure out URL at runtime
   },
   plugins: [
     new ModuleFederationPlugin({
-      name: "construction_app", // Remote app name
-      filename: "remoteEntry.js", // Endpoint exposed to others
+      name: "dashboard_app", // Unique name for dashboard remote
+      filename: "remoteEntry.js",
       exposes: {
-        "./ProjectCostEstimator":
-          "./apps/construction/app/components/project-cost-estimator/project-cost-estimator.tsx", // Expose the component for remote usage
+        // Update with actual component you want to expose
+        "./Dashboard":
+          "./apps/dashboard/app/components/dashboard/dashboard.tsx",
       },
       shared: {
         react: {
           singleton: true,
-          requiredVersion: "^18.2.0",
+          requiredVersion: "^18.3.1",
         },
         "react-dom": {
           singleton: true,
-          requiredVersion: "^18.2.0",
+          requiredVersion: "^18.3.1",
         },
       },
     }),
     new HtmlWebpackPlugin({
-      template: "./apps/construction/app/index.html",
+      template: "./apps/dashboard/app/index.html",
     }),
   ],
   resolve: {
@@ -53,8 +52,8 @@ module.exports = {
   },
   devServer: {
     static: path.resolve(__dirname, "dist"),
-    port: 8080,
+    port: 8081, // Different port than construction app
     historyApiFallback: true,
-    open: true, // automatically open the browser
+    open: true, // Opens browser automatically
   },
 };

@@ -1,14 +1,14 @@
 import {Ui} from '@libs/ui';
 import { Auth } from '@libs/auth';
 
-const ProjectCostEstimator = () => {
+const dashboard = () => {
   return (
      <div>
-      <h1>Project Cost Estimator</h1>
+      <h1>Dashboard component works</h1>
       <Ui />
       <Auth />
     </div>
   );
 };
 
-export default ProjectCostEstimator;
+export default dashboard;

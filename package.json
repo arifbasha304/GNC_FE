@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "start:construction": "pnpm exec webpack serve --config apps/construction/webpack.config.js",
+   "start:construction": "pnpm exec webpack serve --config apps/construction/webpack.config.js",
+   "start:dashboard": "pnpm exec webpack serve --config apps/dashboard/webpack.config.js",
     "prepare": "husky install"
   },
   "private": true,
