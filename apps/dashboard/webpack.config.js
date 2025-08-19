@@ -48,6 +48,32 @@ module.exports = {
         exclude: /node_modules/,
         use: "ts-loader",
       },
+      {
+              test: /\.css$/i,
+              include: [
+                path.resolve(__dirname, "src"), // app CSS
+                path.resolve(__dirname, "../../styles"), // global Tailwind CSS
+                path.resolve(__dirname, "../../libs/ui/src"), // shared UI lib
+                path.resolve(__dirname, "../../libs/auth/src"), // shared Auth lib
+              ],
+              use: [
+                "style-loader",
+                {
+                  loader: "css-loader",
+                  options: { importLoaders: 1 },
+                },
+                {
+                  loader: "postcss-loader",
+                  options: {
+                    postcssOptions: {
+                      plugins: [
+                        require('@tailwindcss/postcss')(), // Tailwind v4 plugin
+                      ],
+                    },
+                  },
+                },
+              ],
+            },
     ],
   },
   devServer: {

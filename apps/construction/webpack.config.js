@@ -1,5 +1,3 @@
-
-
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { ModuleFederationPlugin } = require('webpack').container;
@@ -10,25 +8,19 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "bundle.js",
-    publicPath: "auto", // Let Webpack figure out the URL at runtime
+    publicPath: "auto",
   },
   plugins: [
     new ModuleFederationPlugin({
-      name: "construction_app", // Remote app name
-      filename: "remoteEntry.js", // Endpoint exposed to others
+      name: "construction_app",
+      filename: "remoteEntry.js",
       exposes: {
         "./ProjectCostEstimator":
-          "./apps/construction/app/components/project-cost-estimator/project-cost-estimator.tsx", // Expose the component for remote usage
+          "./apps/construction/app/components/project-cost-estimator/project-cost-estimator.tsx",
       },
       shared: {
-        react: {
-          singleton: true,
-          requiredVersion: "^18.2.0",
-        },
-        "react-dom": {
-          singleton: true,
-          requiredVersion: "^18.2.0",
-        },
+        react: { singleton: true, requiredVersion: "^18.2.0" },
+        "react-dom": { singleton: true, requiredVersion: "^18.2.0" },
       },
     }),
     new HtmlWebpackPlugin({
@@ -49,12 +41,38 @@ module.exports = {
         exclude: /node_modules/,
         use: "ts-loader",
       },
+      {
+        test: /\.css$/i,
+        include: [
+          path.resolve(__dirname, "src"), // app CSS
+          path.resolve(__dirname, "../../styles"), // global Tailwind CSS
+          path.resolve(__dirname, "../../libs/ui/src"), // shared UI lib
+          path.resolve(__dirname, "../../libs/auth/src"), // shared Auth lib
+        ],
+        use: [
+          "style-loader",
+          {
+            loader: "css-loader",
+            options: { importLoaders: 1 },
+          },
+          {
+            loader: "postcss-loader",
+            options: {
+              postcssOptions: {
+                plugins: [
+                  require('@tailwindcss/postcss')(), // Tailwind v4 plugin
+                ],
+              },
+            },
+          },
+        ],
+      },
     ],
   },
   devServer: {
     static: path.resolve(__dirname, "dist"),
     port: 8080,
     historyApiFallback: true,
-    open: true, // automatically open the browser
+    open: true,
   },
 };

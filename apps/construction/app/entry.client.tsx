@@ -4,6 +4,9 @@
 //  * For more information, see https://reactrouter.com/explanation/special-files#entryclienttsx
 //  */
 
+import '../../../styles/tailwind.css';
+// import './styles.css';
+
 
 import('./bootstrap'); // Lazy-load the bootstrap file
 

@@ -7,5 +7,5 @@
 
 import('./bootstrap'); // Lazy-load the bootstrap file
 
-
+import ('../../../styles/tailwind.css');
 

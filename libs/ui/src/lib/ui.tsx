@@ -1,6 +1,7 @@
-
+import './ui.module.css';
+ 
  export function Ui() {
-  return <div>✅ UI Library Component</div>;
+  return <span className="text-red-500 text-xl">✅ UI Library Component</span>;
 }
 
 

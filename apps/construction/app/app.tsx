@@ -3,7 +3,7 @@ import ProjectCostEstimator from './components/project-cost-estimator/project-co
 function App() {
   return (
     <div>
-      <h1>Construction App</h1>
+      <h1 className='bg-red-500'>Construction App</h1>
       <ProjectCostEstimator />
     </div>
   );
