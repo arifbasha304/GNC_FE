@@ -1,6 +1,6 @@
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { ModuleFederationPlugin } = require('webpack').container;
+const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const { ModuleFederationPlugin } = require("webpack").container;
 
 module.exports = {
   mode: "development",
@@ -18,8 +18,8 @@ module.exports = {
       name: "construction_app",
       filename: "remoteEntry.js",
       exposes: {
-        // Fixed path - relative to current folder
-        "./ProjectCostEstimator": "./app/components/project-cost-estimator/project-cost-estimator.tsx",
+        "./ProjectCostEstimator":
+          "./app/components/project-cost-estimator/project-cost-estimator.tsx",
       },
       shared: {
         react: { singleton: true, requiredVersion: "^18.2.0" },
@@ -28,7 +28,7 @@ module.exports = {
     }),
 
     new HtmlWebpackPlugin({
-      template: "./app/index.html", // Fixed: relative to apps/construction
+      template: "./app/index.html",
     }),
   ],
 
@@ -47,16 +47,15 @@ module.exports = {
         exclude: /node_modules/,
         use: "ts-loader",
       },
+
+      // ✅ Rule for your own CSS (with Tailwind/PostCSS)
       {
         test: /\.css$/i,
         include: [
-          path.resolve(__dirname, "src"), // app CSS
-          path.resolve(__dirname, "../../styles"), // global Tailwind CSS
-          path.resolve(__dirname, "../../libs/ui/src"), // shared UI lib
-          path.resolve(__dirname, "../../libs/auth/src"), // shared Auth lib
-          path.resolve(__dirname, "../../libs/ui/src/lib/dynamic-form"),
-          path.resolve(__dirname, "../../node_modules/primereact/resources"), // PrimeReact CSS
-          path.resolve(__dirname, "../../node_modules/primeicons"), // PrimeIcons CSS
+          path.resolve(__dirname, "src"),
+          path.resolve(__dirname, "../../styles"),
+          path.resolve(__dirname, "../../libs/ui/src"),
+          path.resolve(__dirname, "../../libs/auth/src"),
         ],
         use: [
           "style-loader",
@@ -68,13 +67,27 @@ module.exports = {
             loader: "postcss-loader",
             options: {
               postcssOptions: {
-                plugins: [
-                  require('@tailwindcss/postcss')(), // Tailwind v4 plugin
-                ],
+                plugins: [require("@tailwindcss/postcss")()],
               },
             },
           },
         ],
+      },
+
+      // ✅ Rule for vendor CSS (like primereact, primeicons)
+      {
+        test: /\.css$/i,
+        include: /node_modules/,
+        use: ["style-loader", "css-loader"],
+      },
+
+      // ✅ Handle fonts/icons from primeicons
+      {
+        test: /\.(woff(2)?|ttf|eot|svg)$/,
+        type: "asset/resource",
+        generator: {
+          filename: "static/fonts/[name][ext]",
+        },
       },
     ],
   },

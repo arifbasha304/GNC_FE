@@ -14,7 +14,6 @@ export default function CommonButton(props: IAppProps) {
         className={props.className}
         label={props.value}
         onClick={props.onClick}
-        style={{ width: "100%" }}
       />
     </div>
   );
