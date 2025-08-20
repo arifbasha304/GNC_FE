@@ -73,7 +73,22 @@ module.exports = {
                   },
                 },
               ],
-            },
+      },
+      // Vendor CSS (like PrimeReact, PrimeIcons)
+       {
+        test: /\.css$/i,
+        include: /node_modules/,
+        use: ["style-loader", "css-loader"],
+      },
+
+      // ✅ Handle fonts/icons from primeicons
+      {
+        test: /\.(woff(2)?|ttf|eot|svg)$/,
+        type: "asset/resource",
+        generator: {
+          filename: "static/fonts/[name][ext]",
+        },
+      },
     ],
   },
   devServer: {
