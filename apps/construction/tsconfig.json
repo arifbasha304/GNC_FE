@@ -1,13 +1,18 @@
 {
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
+    "baseUrl": "../../",
+    "paths": {
+      "@libs/ui": ["libs/ui/src/index.ts"],
+      "@libs/auth": ["libs/auth/src/index.ts"]
+    },
     "types": ["node", "jest", "@testing-library/jest-dom"]
   },
   "include": [
     "app/**/*",
-    "components/**/*",
-    "routes.tsx",
-    "../../libs/ui/src/**/*",
-    "../../libs/auth/src/**/*"
+  ],
+  "references": [
+    { "path": "../../libs/ui" },
+    { "path": "../../libs/auth" }
   ]
 }

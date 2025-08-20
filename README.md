@@ -16,8 +16,9 @@
 To run the dev server for your app, use:
 
 ```sh
-npx nx serve construction
-# pnpm run start:construction
+#npx nx serve construction
+pnpm run start:construction
+pnpm run start:dashboard
 # in future if we plan to run other apps use this same command 
 # pnpm run start: app-name(eg:construction)
 ```

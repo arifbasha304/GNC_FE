@@ -4,9 +4,6 @@
   "files": [],
   "references": [
     {
-      "path": "./apps/construction-e2e"
-    },
-    {
       "path": "./apps/construction"
     },
     {
@@ -14,6 +11,9 @@
     },
     {
       "path": "./libs/auth"
+    },
+    {
+      "path": "./apps/dashboard"
     }
   ]
 }
