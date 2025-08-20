@@ -1,6 +1,11 @@
 {
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
+    "baseUrl": "../../", // Add this
+    "paths": {
+      "@libs/ui": ["libs/ui/src/index.ts"],
+      "@libs/auth": ["libs/auth/src/index.ts"]
+    },
     "types": ["node", "jest", "@testing-library/jest-dom"]
   },
   "include": [

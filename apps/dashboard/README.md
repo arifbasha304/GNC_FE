@@ -1,5 +1,3 @@
-# 
-
 <a alt="Nx logo" href="https://nx.dev" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="45"></a>
 
 ✨ Your new, shiny [Nx workspace](https://nx.dev) is almost ready ✨.
@@ -13,12 +11,15 @@
 
 ## Run tasks
 
+pnpm i
+
 To run the dev server for your app, use:
 
 ```sh
-#npx nx serve construction
-pnpm run start:construction
-pnpm run start:dashboard
+navigate to particular app eg: apps/construction
+
+pnpm start
+# pnpm run start:dashboard
 # in future if we plan to run other apps use this same command 
 # pnpm run start: app-name(eg:construction)
 ```

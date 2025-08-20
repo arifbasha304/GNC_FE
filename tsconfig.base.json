@@ -1,17 +1,18 @@
 {
   "compilerOptions": {
-    "baseUrl": ".",
-    "paths": {
-      "@libs/ui": ["libs/ui/src/index.ts"],
-      "@libs/auth": ["libs/auth/src/index.ts"]
-    },
+    // Required compiler options
     "composite": true,
     "declaration": true,
+    "allowJs": false,
+    "allowSyntheticDefaultImports": true,
+
     "lib": ["es2022", "dom"],
     "module": "esnext",
     "moduleResolution": "node",
     "target": "es2022",
     "jsx": "react-jsx",
+
+    // Optional but common
     "strict": true,
     "skipLibCheck": true,
     "importHelpers": true,

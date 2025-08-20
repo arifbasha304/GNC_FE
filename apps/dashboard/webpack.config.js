@@ -8,16 +8,14 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "bundle.js",
-    publicPath: "auto", // Let Webpack figure out URL at runtime
+    publicPath: "auto",
   },
   plugins: [
     new ModuleFederationPlugin({
-      name: "dashboard_app", // Unique name for dashboard remote
+      name: "dashboard_app",
       filename: "remoteEntry.js",
       exposes: {
-        // Update with actual component you want to expose
-        "./Dashboard":
-          "./apps/dashboard/app/components/dashboard/dashboard.tsx",
+        "./Dashboard": "./app/components/dashboard/dashboard.tsx",
       },
       shared: {
         react: {
@@ -31,7 +29,7 @@ module.exports = {
       },
     }),
     new HtmlWebpackPlugin({
-      template: "./apps/dashboard/app/index.html",
+      template: "./app/index.html",
     }),
   ],
   resolve: {
@@ -78,8 +76,8 @@ module.exports = {
   },
   devServer: {
     static: path.resolve(__dirname, "dist"),
-    port: 8081, // Different port than construction app
+    port: 8081,
     historyApiFallback: true,
-    open: true, // Opens browser automatically
+    open: true,
   },
 };
