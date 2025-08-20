@@ -119,14 +119,14 @@ export function DynamicForm({
 
           {/* Submit button spans all 8 columns */}
           <div className="col-span-2 md:col-span-4 lg:col-span-8 text-right mt-4">
-            <button
+            {/* <button
               type="submit"
               className="bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700"
             >
               {submitButtonText}
-            </button>
+            </button> */}
             <CommonButton
-              className="ml-2"
+              className="bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700"
               value={submitButtonText}
               onClick={() => form.handleSubmit()}
             />
