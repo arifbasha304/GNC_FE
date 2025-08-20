@@ -1,7 +1,7 @@
-/* Setup Tailwind V4 */
 @import "tailwindcss";
-
 /* @source "../apps/construction/src";
 @source "../libs/ui/src";
 @source "../libs/ui/src/lib/";
 @source "../libs/auth/src"; */
+@source "../apps/**";
+@source "../libs/**";
