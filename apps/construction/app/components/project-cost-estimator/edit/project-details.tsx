@@ -128,7 +128,7 @@ function ProjectDetails() {
         <div className="bg-blue-200 p-4 col-span-2">Box 3</div>
       </div> */}
 
-      <DynamicForm fields={projectFields} onSubmit={() => {}}></DynamicForm>
+      <DynamicForm fields={projectFields} onSubmit={() => console.log("Form submitted")}></DynamicForm>
     </div>
   );
 }

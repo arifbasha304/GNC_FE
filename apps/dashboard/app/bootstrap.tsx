@@ -1,10 +1,15 @@
 // created this file for Lazy-load the bootstrap file to import in entry.client.tsx
 
 import { createRoot } from 'react-dom/client';
+import { PrimeReactProvider } from 'primereact/api';
 import App from './app';
 
 const container = document.getElementById('root');
 if (container) {
   const root = createRoot(container);
-  root.render(<App />);
+  root.render(
+    <PrimeReactProvider value={{ ripple: true }}>
+      <App />
+    </PrimeReactProvider>
+  );
 }

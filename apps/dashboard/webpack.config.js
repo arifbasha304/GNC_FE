@@ -53,6 +53,8 @@ module.exports = {
                 path.resolve(__dirname, "../../styles"), // global Tailwind CSS
                 path.resolve(__dirname, "../../libs/ui/src"), // shared UI lib
                 path.resolve(__dirname, "../../libs/auth/src"), // shared Auth lib
+                path.resolve(__dirname, "../../node_modules/primereact/resources"), // PrimeReact CSS
+                path.resolve(__dirname, "../../node_modules/primeicons"), // PrimeIcons CSS
               ],
               use: [
                 "style-loader",

@@ -1,5 +1,5 @@
 import { useForm } from "@tanstack/react-form";
-
+import CommonButton from "../common-ui/CommonButon";
 export type FieldType = "text" | "select";
 
 export type FormFieldConfig = {
@@ -125,6 +125,11 @@ export function DynamicForm({
             >
               {submitButtonText}
             </button>
+            <CommonButton
+              className="ml-2"
+              value={submitButtonText}
+              onClick={() => form.handleSubmit()}
+            />
           </div>
         </form>
       </div>
