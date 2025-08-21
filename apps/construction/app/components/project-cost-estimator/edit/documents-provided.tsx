@@ -1,167 +1,59 @@
-import React, { useState } from 'react';
+// import React, { useState } from 'react';
+import { InputText } from "primereact/inputtext";
+import { Checkbox } from "primereact/checkbox";
+import { CommentsCard, CommentsFormData, CostingFormData } from "@libs/ui";
+import { useForm } from "@tanstack/react-form";
 
-// Types for the component
-interface DocumentItem {
-  id: string;
-  label: string;
-  checked: boolean;
-}
+import { DOCUMENTS_SECTION_DEFINITION,  CONSTRUCTION_COSTS_SECTION_DEFINITION } from "../../../utils/project-cost-estimator/documents-provided";
 
-interface ConstructionCostItem {
-  id: string;
-  label: string;
-  checked: boolean;
-  comment: string;
-}
-
-interface DocumentsProvidedData {
-  documents: DocumentItem[];
-  constructionCosts: ConstructionCostItem[];
-  generalComments: string;
-}
 
 function DocumentsProvided() {
-  const [data, setData] = useState<DocumentsProvidedData>({
-    documents: [
-      { id: 'asBuilts', label: 'As-Builts', checked: false },
-      { id: 'constructionExhibit', label: 'Construction Exhibit', checked: false },
-      { id: 'constructionResponsibilityMatrix', label: 'Construction Responsibility Matrix', checked: false },
-      { id: 'designCriteria', label: 'Design Criteria', checked: false },
-      { id: 'electronicMall', label: 'Electronic Mall', checked: false },
-      { id: 'photographs', label: 'Photographs', checked: false },
-      { id: 'spaceDrawings', label: 'Space Drawings', checked: false },
-      { id: 'others', label: 'Others', checked: false },
-    ],
-    constructionCosts: [
-      { id: 'ceramicFlooring', label: 'Ceramic Flooring', checked: false, comment: '' },
-      { id: 'concrete', label: 'Concrete', checked: false, comment: '' },
-      { id: 'demisingWalls', label: 'Demising Walls', checked: false, comment: '' },
-      { id: 'demolition', label: 'Demolition', checked: false, comment: '' },
-      { id: 'drinkingFountain', label: 'Drinking Fountain', checked: false, comment: '' },
-      { id: 'topCeiling', label: 'Top Ceiling', checked: false, comment: '' },
-    ],
-    generalComments: '',
+  const form = useForm({
+    defaultValues: {
+      documents: DOCUMENTS_SECTION_DEFINITION.fields.reduce((acc, field) => {
+        acc[field.name] = false;
+        return acc;
+      }, {} as Record<string, boolean>),
+    },
+    onSubmit: async ({ value }) => {
+      console.log("Submitted:", value);
+    },
   });
 
-  const handleDocumentChange = (id: string) => {
-    setData(prev => ({
-      ...prev,
-      documents: prev.documents.map(doc =>
-        doc.id === id ? { ...doc, checked: !doc.checked } : doc
-      )
-    }));
-  };
-
-  const handleConstructionCostChange = (id: string) => {
-    setData(prev => ({
-      ...prev,
-      constructionCosts: prev.constructionCosts.map(item =>
-        item.id === id ? { ...item, checked: !item.checked } : item
-      )
-    }));
-  };
-
-  const handleCommentChange = (id: string, comment: string) => {
-    setData(prev => ({
-      ...prev,
-      constructionCosts: prev.constructionCosts.map(item =>
-        item.id === id ? { ...item, comment } : item
-      )
-    }));
-  };
-
-  const handleGeneralCommentsChange = (comments: string) => {
-    setData(prev => ({
-      ...prev,
-      generalComments: comments
-    }));
-  };
-
-  const handleSubmit = () => {
-    console.log('Documents Provided Data:', data);
-    // Handle form submission here
-  };
-
   return (
-    <div className="p-6 bg-white max-w-4xl mx-auto">
-      {/* Documents Provided Section */}
-      <div className="mb-8">
-        <h2 className="text-xl font-semibold text-gray-800 mb-6">Documents Provided</h2>
-        <div className="bg-gray-50 p-6 rounded-lg">
-          <div className="space-y-4">
-            {data.documents.map((document) => (
-              <div key={document.id} className="flex items-center space-x-3">
-                <input
-                  type="checkbox"
-                  id={document.id}
-                  checked={document.checked}
-                  onChange={() => handleDocumentChange(document.id)}
-                  className="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
-                />
-                <label 
-                  htmlFor={document.id}
-                  className="text-gray-700 text-sm cursor-pointer"
-                >
-                  {document.label}
-                </label>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      {/* Construction Cost Inclusions Section */}
-      <div className="mb-8">
-        <div className="flex justify-between items-center mb-6">
-          <h2 className="text-xl font-semibold text-gray-800">Construction Cost Inclusions</h2>
-          <span className="text-gray-600 text-sm">Comments</span>
-        </div>
-        
-        <div className="bg-gray-50 p-6 rounded-lg">
-          <div className="space-y-6">
-            {data.constructionCosts.map((item) => (
-              <div key={item.id} className="grid grid-cols-2 gap-6 items-start">
-                <div className="flex items-center space-x-3">
-                  <input
-                    type="checkbox"
-                    id={item.id}
-                    checked={item.checked}
-                    onChange={() => handleConstructionCostChange(item.id)}
-                    className="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
+    <div>
+      <h2 className="p-6 text-2xl font-semibold text-gray-500 capitalize w-3/5 h-12">Documents Provided</h2>
+      <form onSubmit={form.handleSubmit} className="w-full p-6  space-y-6 ">
+        <div>
+          {DOCUMENTS_SECTION_DEFINITION.fields.map((field) => (
+            <form.Field
+              key={field.name}
+              name={`documents.${field.name}`}
+              children={(fieldApi) => (
+                <div className="flex items-center gap-4 py-3">
+                  <Checkbox
+                    inputId={field.name}
+                    checked={fieldApi.state.value}
+                    onChange={(e) => fieldApi.handleChange(e.checked ?? false)}
+                    className="w-4 h-4 text-blue-600 border-gray-300 rounded w-1/4"
                   />
-                  <label 
-                    htmlFor={item.id}
-                    className="text-gray-700 text-sm cursor-pointer"
+                  <label
+                    className="text-gray-700 text-sm w-3/4"
+                    htmlFor={field.name}
                   >
-                    {item.label}
+                    {field.label}
                   </label>
                 </div>
-                <textarea
-                  value={item.comment}
-                  onChange={(e) => handleCommentChange(item.id, e.target.value)}
-                  placeholder="Add comments..."
-                  rows={2}
-                  className="w-full p-2 border border-gray-300 rounded-md text-sm resize-none focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                />
-              </div>
-            ))}
-          </div>
+              )}
+            />
+          ))}
         </div>
-      </div>
+      </form>
 
-      {/* General Comments Section */}
-      <div className="mb-8">
-        <textarea
-          value={data.generalComments}
-          onChange={(e) => handleGeneralCommentsChange(e.target.value)}
-          placeholder="General comments..."
-          rows={6}
-          className="w-full p-4 border border-gray-300 rounded-lg text-sm resize-none focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-        />
+      {/* comments card where user can enter comments enabled input fields */}
+      <div>
+        <CommentsCard data={CONSTRUCTION_COSTS_SECTION_DEFINITION} />
       </div>
-
-      {/* Submit Button */}
-      
     </div>
   );
 }

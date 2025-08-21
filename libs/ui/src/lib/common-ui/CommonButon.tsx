@@ -5,15 +5,19 @@ export interface IAppProps {
   onChange?: (value: string) => void;
   className?: string;
   onClick?: () => void;
+  disabled?: boolean;
+  icon?: string;
 }
 
 export default function CommonButton(props: IAppProps) {
   return (
     <div>
       <Button
+        icon={props.icon}
         className={props.className}
         label={props.value}
         onClick={props.onClick}
+        unstyled
       />
     </div>
   );
