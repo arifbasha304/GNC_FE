@@ -4,7 +4,7 @@ import { Checkbox } from "primereact/checkbox";
 import { CommentsCard, CommentsFormData, CostingFormData } from "@libs/ui";
 import { useForm } from "@tanstack/react-form";
 
-import { DOCUMENTS_SECTION_DEFINITION,  CONSTRUCTION_COSTS_SECTION_DEFINITION } from "../../../utils/project-cost-estimator/documents-provided";
+import { DOCUMENTS_SECTION_DEFINITION,  CONSTRUCTION_COSTS_SECTION_DEFINITION } from "../../../utils/data/documents-provided";
 
 
 function DocumentsProvided() {

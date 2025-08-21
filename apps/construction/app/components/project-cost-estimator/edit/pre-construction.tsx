@@ -1,6 +1,6 @@
 import { CostingCard, CostingFormData } from "@libs/ui";
 
-import { PRECONSTRUCTION_SECTION_DEFINITIONS } from "../../../utils/project-cost-estimator/pre-construction";
+import { PRECONSTRUCTION_SECTION_DEFINITIONS } from "../../../utils/data/pre-construction";
 
 function PreConstruction() {
   return (

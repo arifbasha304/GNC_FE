@@ -1,6 +1,6 @@
 import { CostingCard, CostingFormData } from "@libs/ui";
 
-import { CONSTRUCTION_SECTION_DEFINITIONS }  from '../../../utils/project-cost-estimator/construction'
+import { CONSTRUCTION_SECTION_DEFINITIONS }  from '../../../utils/data/construction'
 
 
 function Construction() {

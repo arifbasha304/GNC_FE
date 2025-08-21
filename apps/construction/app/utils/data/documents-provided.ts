@@ -1,25 +1,7 @@
 
 import { CostingFormData } from "@libs/ui";
 
-interface DocumentItem {
-    id: string;
-    label: string;
-    checked: boolean;
-  }
-  
-  interface ConstructionCostItem {
-    id: string;
-    label: string;
-    checked: boolean;
-    comment: string;
-  }
-  
-  interface DocumentsProvidedData {
-    documents: DocumentItem[];
-    constructionCosts: ConstructionCostItem[];
-    generalComments: string;
-  }
-  
+
   // Documents Section
  export const DOCUMENTS_SECTION_DEFINITION: CostingFormData = { 
     label: "Documents",

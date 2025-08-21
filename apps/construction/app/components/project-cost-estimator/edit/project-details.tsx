@@ -1,5 +1,5 @@
 import { DynamicForm, FormFieldConfig } from "@libs/ui";
-import { PROJECT_DETAILS_DEFINITION } from "../../../utils/project-cost-estimator/project-details";
+import { PROJECT_DETAILS_DEFINITION } from "../../../utils/data/project-details";
 
 
 function ProjectDetails() {

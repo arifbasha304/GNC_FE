@@ -2,23 +2,9 @@
 import { useForm } from "@tanstack/react-form";
 import { InputText } from "primereact/inputtext";
 import { Checkbox } from "primereact/checkbox";
+import { CostingFormData, CostingFieldType } from "../types"
 
-// Define types
-export type CostingFieldType = {
-  name: string;
-  label: string;
-};
 
-export type CostingFormData = {
-  name: string;
-  label: string;
-  fields: CostingFieldType[];
-};
-
-// type FormValues = {
-//   name: string
-//   fields: boolean[] // represents checkbox state
-// }
 
 export const CostingCard: React.FC<{ data: CostingFormData }> = ({ data }) => {
   const form = useForm({
