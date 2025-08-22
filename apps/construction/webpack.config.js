@@ -37,6 +37,7 @@ module.exports = {
     alias: {
       "@libs/ui": path.resolve(__dirname, "../../libs/ui/src"),
       "@libs/auth": path.resolve(__dirname, "../../libs/auth/src"),
+      '@libs/store': path.resolve(__dirname, "../../libs/store/src")
     },
   },
 
