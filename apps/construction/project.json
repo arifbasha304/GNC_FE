@@ -1,0 +1,24 @@
+{
+  "name": "construction",
+  "root": "apps/construction",
+  "sourceRoot": "apps/construction/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/webpack:webpack",
+      "options": {
+        "outputPath": "dist/apps/construction",
+        "webpackConfig": "apps/construction/webpack.config.js",
+        "styles": ["styles/tailwind.css"]
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/webpack:dev-server",
+      "options": {
+        "buildTarget": "construction:build",
+        "port": 8080,
+        "open": true
+      }
+    }
+  }
+}

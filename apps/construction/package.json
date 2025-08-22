@@ -1,0 +1,8 @@
+{
+  "name": "@gnc/construction",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "pnpm exec webpack serve --config webpack.config.js"
+  }
+}

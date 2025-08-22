@@ -1,0 +1,22 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compileOnSave": false,
+  "files": [],
+  "references": [
+    {
+      "path": "./apps/construction"
+    },
+    {
+      "path": "./libs/ui"
+    },
+    {
+      "path": "./libs/auth"
+    },
+    {
+      "path": "./apps/dashboard"
+    },
+    {
+      "path": "./libs/store"
+    }
+  ]
+}
