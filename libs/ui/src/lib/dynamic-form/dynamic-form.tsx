@@ -1,5 +1,10 @@
 import { useForm } from "@tanstack/react-form";
 import CommonButton from "../common-ui/CommonButon";
+import { InputText } from 'primereact/inputtext';
+import { Dropdown } from 'primereact/dropdown';
+
+
+
 export type FieldType = "text" | "select";
 
 export type FormFieldConfig = {
@@ -10,7 +15,10 @@ export type FormFieldConfig = {
   placeholder?: string;
   helperText?: string;
   options?: string[];
-  colSpan?: number; // 1 to 8, defaults to 1
+  colSpan?: number; // 1 to 8, defaults to 2
+  rowSpan?: 1|2;
+  disabled?: boolean,
+  marginBottom?: 2
 };
 
 type DynamicFormProps = {
@@ -36,7 +44,7 @@ export function DynamicForm({
   });
 
   return (
-    <div className="max-w-7xl mx-auto p-6 bg-orange-50 shadow-md rounded-md">
+    <div className=" bg-orange-50 shadow-md rounded-md border border-orange-200 p-7">
       <h2 className="text-2xl font-semibold mb-6">Project Details</h2>
       {/* <div className="bg-orange-50"> */}
         <form
@@ -49,7 +57,9 @@ export function DynamicForm({
           {fields.map((field) => {
             // Clamp colSpan between 1 and 8, default to 1
             const colSpan = Math.min(Math.max(field.colSpan ?? 2, 1), 8);
-
+            const fieldHeight = field.rowSpan===2?'h-16': 'h-12'
+            const fieldDisabled = field.disabled ? true : false 
+            const projectNumberField =  field.marginBottom===2 ? 'mb-2' : ''
             return (
               <form.Field
                 key={field.name}
@@ -63,7 +73,7 @@ export function DynamicForm({
                     : undefined,
                 }}
                 children={(fieldState) => (
-                  <div className={`col-span-${colSpan}`}>
+                  <div className={`col-span-${colSpan} ${projectNumberField ?? ''}`}>
                     <label
                       className="block text-sm font-medium mb-1"
                       htmlFor={field.name}
@@ -72,26 +82,24 @@ export function DynamicForm({
                     </label>
 
                     {field.type === "select" ? (
-                      <select
+                      <Dropdown
                         id={field.name}
-                        className="w-full border border-gray-300 rounded-md px-3 py-2"
                         value={fieldState.state.value}
-                        onChange={(e) =>
-                          fieldState.handleChange(e.target.value)
+                        onChange={(e) => fieldState.handleChange(e.value)}
+                        options={
+                          field.options?.map((opt) => ({
+                            label: opt,
+                            value: opt,
+                          })) || []
                         }
-                      >
-                        <option value="">Select an option</option>
-                        {field.options?.map((opt) => (
-                          <option key={opt} value={opt}>
-                            {opt}
-                          </option>
-                        ))}
-                      </select>
+                        
+                        className={"flex items-center w-full text-sm py-2 px-3 " + fieldHeight}
+                      />
                     ) : (
-                      <input
+                      <InputText
+                        disabled ={ fieldDisabled }
                         id={field.name}
-                        type="text"
-                        className="w-full border border-gray-300 rounded-md px-3 py-2"
+                        className={"p-inputtext-sm w-full bg-white border border-gray-300 rounded-md px-3 py-2 " + fieldHeight  }
                         value={fieldState.state.value}
                         onChange={(e) =>
                           fieldState.handleChange(e.target.value)
@@ -119,17 +127,7 @@ export function DynamicForm({
 
           {/* Submit button spans all 8 columns */}
           <div className="col-span-2 md:col-span-4 lg:col-span-8 text-right mt-4">
-            {/* <button
-              type="submit"
-              className="bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700"
-            >
-              {submitButtonText}
-            </button> */}
-            <CommonButton
-              className="bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700"
-              value={submitButtonText}
-              onClick={() => form.handleSubmit()}
-            />
+            
           </div>
         </form>
       </div>
