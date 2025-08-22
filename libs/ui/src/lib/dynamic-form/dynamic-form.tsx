@@ -57,7 +57,7 @@ export function DynamicForm({
           {fields.map((field) => {
             // Clamp colSpan between 1 and 8, default to 1
             const colSpan = Math.min(Math.max(field.colSpan ?? 2, 1), 8);
-            const fieldHeight = field.rowSpan===2?'h-16': 'h-12'
+            const fieldHeight = field.rowSpan===2?'h-12': 'h-9'
             const fieldDisabled = field.disabled ? true : false 
             const projectNumberField =  field.marginBottom===2 ? 'mb-2' : ''
             return (
@@ -73,9 +73,9 @@ export function DynamicForm({
                     : undefined,
                 }}
                 children={(fieldState) => (
-                  <div className={`col-span-${colSpan} ${projectNumberField ?? ''}`}>
+                  <div className={`col-span-${colSpan}`}>
                     <label
-                      className="block text-sm font-medium mb-1"
+                      className={`block text-sm font-medium mb-1 ${projectNumberField}`}
                       htmlFor={field.name}
                     >
                       {field.label}
@@ -93,13 +93,13 @@ export function DynamicForm({
                           })) || []
                         }
                         
-                        className={"flex items-center w-full text-sm py-2 px-3 " + fieldHeight}
+                        className={"flex items-center w-full text-sm py-1 px-1 " + fieldHeight}
                       />
                     ) : (
                       <InputText
                         disabled ={ fieldDisabled }
                         id={field.name}
-                        className={"p-inputtext-sm w-full bg-white border border-gray-300 rounded-md px-3 py-2 " + fieldHeight  }
+                        className={"p-inputtext-sm w-full bg-white border border-gray-300 rounded-md px-1 py-1 " + fieldHeight  }
                         value={fieldState.state.value}
                         onChange={(e) =>
                           fieldState.handleChange(e.target.value)

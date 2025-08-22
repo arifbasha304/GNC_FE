@@ -36,7 +36,7 @@ function ProjectCostEstimatorEdit() {
           </div>
         </div>
 
-        <div className="w-1/2 mr-5 bg-blue-50 rounded-lg">
+        <div className="w-1/2 mr-0 bg-blue-50 rounded-lg">
           <Construction />
         </div>
       </div>
