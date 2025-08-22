@@ -93,7 +93,7 @@ export function DynamicForm({
                           })) || []
                         }
                         
-                        className={"w-full text-sm py-2 px-3 " + fieldHeight}
+                        className={"flex items-center w-full text-sm py-2 px-3 " + fieldHeight}
                       />
                     ) : (
                       <InputText
