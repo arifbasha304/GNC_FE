@@ -4,7 +4,8 @@
     "baseUrl": "../../",
     "paths": {
       "@libs/ui": ["libs/ui/src/index.ts"],
-      "@libs/auth": ["libs/auth/src/index.ts"]
+      "@libs/auth": ["libs/auth/src/index.ts"],
+      "@libs/store": ["libs/store/src/index.ts"]
     },
     "types": ["node", "jest", "@testing-library/jest-dom"]
   },
