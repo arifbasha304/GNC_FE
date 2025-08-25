@@ -16,6 +16,11 @@
     "strict": true,
     "skipLibCheck": true,
     "importHelpers": true,
-    "isolatedModules": true
+    "isolatedModules": true,
+    "paths": {
+      "@libs/*": ["libs/*/src/index.ts"],
+      "@libs/store": ["libs/store/src/index.ts"]
+    },
+    "baseUrl": "."
   }
 }
