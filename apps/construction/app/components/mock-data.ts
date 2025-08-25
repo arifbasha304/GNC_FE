@@ -1,0 +1,146 @@
+export const formMockData = {
+    construction: {
+      electrical: {
+        accentLighting: { isChecked: false, value: 0 },
+        gateways: { isChecked: false, value: 0 },
+        electricalPanel: { isChecked: false, value: 0 },
+        exitLighting: { isChecked: false, value: 0 },
+        lighting: { isChecked: false, value: 0 },
+        outlets: { isChecked: false, value: 0 },
+        gfiTile: { isChecked: false, value: 0 },
+      },
+      fireSuppression: {
+        fireAlarm: { isChecked: false, value: 0 },
+        existingSprinklersModification: { isChecked: false, value: 0 },
+        newSprinklers: { isChecked: false, value: 0 },
+      },
+      flooring: {
+        compositeSlab: { isChecked: false, value: 0 },
+        floorPreparation: { isChecked: false, value: 0 },
+        flooring: { isChecked: false, value: 0 },
+      },
+      hvac: {
+        hvacCompositeSlab: { isChecked: false, value: 0 },
+        hvacFloorPreparation: { isChecked: false, value: 0 },
+        hvacFlooring: { isChecked: false, value: 0 },
+      },
+      storefront: {
+        storefrontCompositeSlab: { isChecked: false, value: 0 },
+        storefrontFloorPreparation: { isChecked: false, value: 0 },
+        storefrontFlooring: { isChecked: false, value: 0 },
+      },
+      plumbing: {
+        plumbingFireAlarm: { isChecked: false, value: 0 },
+        plumbingExistingSprinklersModification: { isChecked: false, value: 0 },
+        plumbingGateways: { isChecked: false, value: 0 },
+      },
+      demolition: {
+        demolitionFireAlarm: { isChecked: false, value: 0 },
+        demolitionExistingSprinklersModification: { isChecked: false, value: 0 },
+        demolitionGateways: { isChecked: false, value: 0 },
+      },
+      ceiling: {
+        ceilingFireAlarm: { isChecked: false, value: 0 },
+        ceilingExistingSprinklersModification: { isChecked: false, value: 0 },
+        ceilingGateways: { isChecked: false, value: 0 },
+      },
+      walls: {
+        wallsFireAlarm: { isChecked: false, value: 0 },
+        wallsExistingSprinklersModification: { isChecked: false, value: 0 },
+        wallsGateways: { isChecked: false, value: 0 },
+      },
+      paint: {
+        paintFireAlarm: { isChecked: false, value: 0 },
+        paintExistingSprinklersModification: { isChecked: false, value: 0 },
+        paintGateways: { isChecked: false, value: 0 },
+      },
+      fixtureInstallation: {
+        fixtureInstallationFireAlarm: { isChecked: false, value: 0 },
+        fixtureInstallationExistingSprinklersModification: { isChecked: false, value: 0 },
+        fixtureInstallationGateways: { isChecked: false, value: 0 },
+      },
+      equipment: {
+        equipmentFireAlarm: { isChecked: false, value: 0 },
+        equipmentExistingSprinklersModification: { isChecked: false, value: 0 },
+        equipmentGateways: { isChecked: false, value: 0 },
+      },
+      cleaning: {
+        cleaningExistingSprinklersModification: { isChecked: false, value: 0 },
+        cleaningGateways: { isChecked: false, value: 0 },
+      },
+    },
+    preConstruction: {
+      design: {
+        architectEngineer: { isChecked: false, value: 0 },
+        siteSurvey: { isChecked: false, value: 0 },
+        hvacSurvey: { isChecked: false, value: 0 },
+        permitExpeditor: { isChecked: false, value: 0 },
+        permits: { isChecked: false, value: 0 },
+        caddTime: { isChecked: false, value: 0 },
+      },
+      signage: {
+        firstStorefrontSite: { isChecked: false, value: 0 },
+        secondStorefrontSign: { isChecked: false, value: 0 },
+        awning: { isChecked: false, value: 0 },
+        bladeSign: { isChecked: false, value: 0 },
+        pylonMonumentSign: { isChecked: false, value: 0 },
+      },
+      fixtures: {
+        refacePackage: { isChecked: false, value: 0 },
+        fullFixturesPackage: { isChecked: false, value: 0 },
+      },
+      lightingMaterials: {
+        accentLightingPackage: { isChecked: false, value: 0 },
+        fullLightingPackage: { isChecked: false, value: 0 },
+      },
+      flooringMaterials: {
+        flooringTile: { isChecked: false, value: 0 },
+        storefrontTile: { isChecked: false, value: 0 },
+      },
+      miscellaneous: {
+        firstStorefrontSiteMisc: { isChecked: false, value: 0 },
+        cooler: { isChecked: false, value: 0 },
+        graphics: { isChecked: false, value: 0 },
+        mainframe: { isChecked: false, value: 0 },
+      },
+    },
+    documentsProvided: {
+      documents: {
+        asBuilts: false,
+        constructionExhibit: false,
+        constructionResponsibilityMatrix: false,
+        designCriteria: false,
+        electronicMall: false,
+        photographs: false,
+        spaceDrawings: false,
+        others: false,
+      },
+      constructionCostInclusion: {
+        ceramicFlooring: { isChecked: false, value: 0 },
+        concrete: { isChecked: false, value: 0 },
+        demisingWalls: { isChecked: false, value: 0 },
+        demolition: { isChecked: false, value: 0 },
+        drinkingFountain: { isChecked: false, value: 0 },
+        topCeiling: { isChecked: false, value: 0 },
+      },
+    },
+    projectDetails: {
+      estinamtionNumber: "",
+      siteNumber: "",
+      siteName: "",
+      city: "",
+      state: "",
+      country: "",
+      projectManager: "",
+      location: "",
+      category: "",
+      spaceCondition: "",
+      duration: "",
+      factor: "",
+      footage: "",
+      length: "",
+      width: "",
+      exitLights: "",
+    },
+  };
+  

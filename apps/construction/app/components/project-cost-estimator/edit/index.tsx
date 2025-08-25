@@ -5,12 +5,13 @@ import Navbar from "../../common/navbar";
 import PreConstruction from "./pre-construction";
 import ProjectDetails from "./project-details";
 import TotalCostEstimation from "./total-cost-estimation";
-import { useForm } from "@tanstack/react-form"; // Make sure it's imported
+import { useForm } from "@tanstack/react-form";
+import {formMockData } from '../../mock-data'
+
 
 function ProjectCostEstimatorEdit() {
-  // ✅ Initialize form (stub for now; replace with your real config)
   const form = useForm({
-    defaultValues: {}, // Set up your actual default values
+    defaultValues: {},
     onSubmit: async ({ value }) => {
       console.log("Form submitted:", value);
     },
@@ -24,20 +25,20 @@ function ProjectCostEstimatorEdit() {
         <Navbar submitButtonText={submitButtonText} form={form} />
       </div>
 
-      <ProjectDetails />
+      <ProjectDetails data={formMockData.projectDetails} />
 
       <div className="flex rounded-lg">
         <div className="flex flex-col w-1/2 mr-5">
           <div className="bg-blue-50 mb-5 rounded-lg">
-            <PreConstruction />
+            <PreConstruction data={formMockData.preConstruction}/>
           </div>
           <div className="bg-green-50 rounded-lg">
-            <DocumentsProvided />
+            <DocumentsProvided data={formMockData.documentsProvided}/>
           </div>
         </div>
 
         <div className="w-1/2 mr-5 bg-blue-50 rounded-lg">
-          <Construction />
+          <Construction data={formMockData.construction}/>
         </div>
       </div>
 

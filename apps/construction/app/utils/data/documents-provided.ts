@@ -5,7 +5,7 @@ import { CostingFormData } from "@libs/ui";
   // Documents Section
  export const DOCUMENTS_SECTION_DEFINITION: CostingFormData = { 
     label: "Documents",
-    name: "Pre-Construction",
+    name: "documents",
     fields: [
       {
         name: "asBuilts",
@@ -45,7 +45,7 @@ import { CostingFormData } from "@libs/ui";
   // Construction Costs Section
  export const CONSTRUCTION_COSTS_SECTION_DEFINITION: CostingFormData = {
     label: "Construction Costs Inclusions",
-    name: "Pre-Construction",
+    name: "constructionCostInclusion",
     fields: [
       {
         name: "ceramicFlooring",

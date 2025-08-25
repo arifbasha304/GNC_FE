@@ -7,11 +7,11 @@ import { useForm } from "@tanstack/react-form";
 import { DOCUMENTS_SECTION_DEFINITION,  CONSTRUCTION_COSTS_SECTION_DEFINITION } from "../../../utils/data/documents-provided";
 
 
-function DocumentsProvided() {
+function DocumentsProvided({data}:{data:any}) {
   const form = useForm({
     defaultValues: {
       documents: DOCUMENTS_SECTION_DEFINITION.fields.reduce((acc, field) => {
-        acc[field.name] = false;
+        acc[field.name] = data.documents[field.name];
         return acc;
       }, {} as Record<string, boolean>),
     },
@@ -52,7 +52,7 @@ function DocumentsProvided() {
 
       {/* comments card where user can enter comments enabled input fields */}
       <div>
-        <CommentsCard data={CONSTRUCTION_COSTS_SECTION_DEFINITION} />
+        <CommentsCard definition={CONSTRUCTION_COSTS_SECTION_DEFINITION} data={data} />
       </div>
     </div>
   );

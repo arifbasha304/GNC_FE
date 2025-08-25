@@ -2,10 +2,10 @@ import { DynamicForm, FormFieldConfig } from "@libs/ui";
 import { PROJECT_DETAILS_DEFINITION } from "../../../utils/data/project-details";
 
 
-function ProjectDetails() {
+function ProjectDetails({data}:{data:any}) {
   return (
     <div className="bg-white rounded-md">
-      <DynamicForm fields={PROJECT_DETAILS_DEFINITION} onSubmit={() => console.log("Form submitted")}></DynamicForm>
+      <DynamicForm data={data}fields={PROJECT_DETAILS_DEFINITION} onSubmit={() => console.log("Form submitted")}></DynamicForm>
     </div>
   );
 }
