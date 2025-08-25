@@ -1,22 +1,22 @@
 {
-  "name": "construction",
-  "root": "apps/construction",
-  "sourceRoot": "apps/construction/src",
+  "name": "dashboard",
+  "root": "apps/dashboard",
+  "sourceRoot": "apps/dashboard/src",
   "projectType": "application",
   "targets": {
     "build": {
-      "executor": "@nrwl/webpack:webpack",
+      "executor": "@nx/webpack:webpack",
       "options": {
-        "outputPath": "dist/apps/construction",
-        "webpackConfig": "apps/construction/webpack.config.js",
-         "styles": ["styles/tailwind.css"]
+        "outputPath": "dist/apps/dashboard",
+        "webpackConfig": "apps/dashboard/webpack.config.js",
+        "styles": ["styles/tailwind.css"]
       }
     },
     "serve": {
-      "executor": "@nrwl/webpack:dev-server",
+      "executor": "@nx/webpack:dev-server",
       "options": {
-        "buildTarget": "construction:build",
-        "port": 8080,
+        "buildTarget": "dashboard:build",
+        "port": 8081,
         "open": true
       }
     }
