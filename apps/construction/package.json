@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "start": "pnpm exec webpack serve --config webpack.config.js"
+    "start": "pnpm exec webpack serve --config webpack.config.js",
+    "build": "pnpm exec webpack --config webpack.config.js --mode=production",
+    "build:dev": "pnpm exec webpack --config webpack.config.js --mode=development",
+    "preview": "pnpm exec serve -s dist -p 3000"
   }
 }

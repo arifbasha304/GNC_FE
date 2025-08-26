@@ -1,8 +1,9 @@
 {
   "compilerOptions": {
     // Required compiler options
-    "composite": true,
-    "declaration": true,
+    "composite": false,
+    "declaration": false,
+    "declarationMap": false,
     "allowJs": false,
     "allowSyntheticDefaultImports": true,
 
@@ -16,6 +17,11 @@
     "strict": true,
     "skipLibCheck": true,
     "importHelpers": true,
-    "isolatedModules": true
+    "isolatedModules": true,
+    "paths": {
+      "@libs/*": ["libs/*/src/index.ts"],
+      "@libs/store": ["libs/store/src/index.ts"]
+    },
+    "baseUrl": "."
   }
 }
