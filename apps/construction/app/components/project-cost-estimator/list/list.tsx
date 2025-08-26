@@ -33,7 +33,7 @@ const stateOptions = [
 
 export default function EstimationsPage() {
   return (
-    <div className="max-w-8xl mt-10">
+    <div className="max-w-8xl mt-10 shadow-2xl rounded-b-2xl border-b-gray-400">
       <TableWrapper columns={columns} data={recentEstimationsMockData} stateOptions={stateOptions} />
     </div>
   );

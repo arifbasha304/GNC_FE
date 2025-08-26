@@ -1,6 +1,4 @@
-
-
-import React, { useMemo, useState } from 'react';
+import React, { useMemo, useState } from "react";
 import {
   ColumnDef,
   getCoreRowModel,
@@ -8,14 +6,14 @@ import {
   flexRender,
   getFilteredRowModel,
   getPaginationRowModel,
-} from '@tanstack/react-table';
-import { useNavigate } from 'react-router-dom';
-import CommonButton from '../common-ui/CommonButon';
+} from "@tanstack/react-table";
+import { useNavigate } from "react-router-dom";
+import CommonButton from "../common-ui/CommonButon";
 
-import { InputText } from 'primereact/inputtext';
-import { Dropdown } from 'primereact/dropdown';
-import { DataTable } from 'primereact/datatable';
-import { Column } from 'primereact/column';
+import { InputText } from "primereact/inputtext";
+import { Dropdown } from "primereact/dropdown";
+import { DataTable } from "primereact/datatable";
+import { Column } from "primereact/column";
 
 type TableWrapperProps<TData extends Record<string, any>> = {
   columns: ColumnDef<TData, any>[];
@@ -31,20 +29,27 @@ export function TableWrapper<TData extends Record<string, any>>({
   initialPageSize = 5,
 }: TableWrapperProps<TData>) {
   const navigate = useNavigate();
-  const [search, setSearch] = useState('');
+  const [search, setSearch] = useState("");
   const [selectedState, setSelectedState] = useState<string | null>(null);
 
   // PrimeReact Dropdown expects options as { label, value }
-  const dropdownOptions = stateOptions.map((state) => ({ label: state, value: state }));
+  const dropdownOptions = stateOptions.map((state) => ({
+    label: state,
+    value: state,
+  }));
 
   const filteredData = useMemo(() => {
     return data.filter((row) => {
-      const searchFields = ['site', 'siteName', 'city', 'state'];
+      const searchFields = ["site", "siteName", "city", "state"];
       const matchesSearch = searchFields.some((field) =>
-        String(row[field] ?? '').toLowerCase().includes(search.toLowerCase())
+        String(row[field] ?? "")
+          .toLowerCase()
+          .includes(search.toLowerCase())
       );
 
-      const matchesState = selectedState ? row['state'] === selectedState : true;
+      const matchesState = selectedState
+        ? row["state"] === selectedState
+        : true;
 
       return matchesSearch && matchesState;
     });
@@ -62,9 +67,8 @@ export function TableWrapper<TData extends Record<string, any>>({
   const pageCount = table.getPageCount();
   const pageIndex = table.getState().pagination.pageIndex;
 
-
   return (
-    <div className="p-6 bg-white rounded-lg shadow space-y-4">
+    <div className="p-6 bg-white rounded-lg  space-y-4">
       {/* Header Controls */}
       <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
         <div className="flex flex-col sm:flex-row gap-3">
@@ -91,25 +95,53 @@ export function TableWrapper<TData extends Record<string, any>>({
         <CommonButton
           icon="pi pi-plus"
           value="Create New Estimation"
-          className="bg-[#e31837] text-white px-2 py-2 rounded hover:bg-red-600 transition cursor-pointer"
-          onClick={() => navigate('/edit')}
+          className=" space-x-1 bg-[#e31837] text-white px-1 py-2 rounded hover:bg-red-600 transition cursor-pointer"
+          onClick={() => navigate("/edit")}
         />
       </div>
-      <DataTable className='border-solid border-[1px] border-gray-200 rounded-xl' value={data} paginator rows={10} tableStyle={{ minWidth: '50rem' }}>
-                <Column field="site" header="Name" style={{ width: '25%' }}></Column>
-                <Column field="siteName" header="Country" style={{ width: '25%' }}></Column>
-                <Column field="city" header="Company" style={{ width: '25%' }}></Column>
-                <Column field="state" header="Representative" style={{ width: '25%' }}></Column>
-                <Column field="projectManager" header="Representative" style={{ width: '25%' }}></Column>
-                <Column field="totalCost" header="Representative" style={{ width: '25%' }}></Column>
-                <Column field="" header="" style={{ width: '25%' }} body={()=>{
-                  return <div className='flex gap-2'>
-                    <button className='bg-transparent text-black px-2 py-1 rounded hover:bg-blue-600 transition cursor-pointer'>View</button>
-                  </div>
-                }}></Column>
+      <DataTable
+        className="border-solid border-[1px] border-gray-200 rounded-xl"
+        value={filteredData}
+        paginator
+        rows={7}
+        tableStyle={{ minWidth: "50rem" }}
+      >
+        <Column
+          field="site"
+          header="Project ID"
+          headerStyle={{ fontWeight: 500, color: '#4B5563', width: "15%" }}
+        ></Column>
+        <Column
+          field="siteName"
+          header="Site Name"
+          style={{ fontWeight: 500, color: '#4B5563', width: "20%" }}
+        ></Column>
+        <Column field="city" header="City" style={{ fontWeight: 500, color: '#4B5563', width: "15%" }}></Column>
+        <Column field="state" header="State" style={{ fontWeight: 500, color: '#4B5563', width: "15%" }}></Column>
+        <Column
+          field="projectManager"
+          header="Project Manager"
+          style={{ fontWeight: 500, color: '#4B5563', width: "20%" }}
+        ></Column>
+        <Column
+          field="totalCost"
+          header="Total Cost"
+          style={{ fontWeight: 500, color: '#4B5563', width: "15%" }}
+        ></Column>
+        <Column
+          header=""
+          style={{ width: "10%" }}
+          body={() => (
+            <div className="flex gap-2">
+              <CommonButton
+                value="View"
+                className=" bg-transparent text-black px-2 py-1 transition cursor-pointer"
+                onClick={() => navigate("/edit")}
+              />
+            </div>
+          )}
+        />
       </DataTable>
     </div>
   );
 }
-
-

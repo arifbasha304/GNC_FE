@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { useForm, useStore } from "@tanstack/react-form";
 import { InputText } from "primereact/inputtext";
 import { Checkbox } from "primereact/checkbox";
@@ -11,25 +11,45 @@ export const CostingCard: React.FC<{
   const defaultValues = {
     label: definition.label,
     name: definition.name,
-    fields: definition.fields.map((field) => ({
-      isChecked: data[field.name]?.isChecked ?? false,
-      value: data[field.name]?.value !== undefined ? `$${data[field.name].value}` : "",
-    })),
+    fields: definition.fields.map((field) => {
+      const fieldData = data[field.name]?.value;
+      const value =
+        fieldData !== undefined && !isNaN(Number(fieldData))
+          ? `$${fieldData}`
+          : "$0.00";
+
+      return {
+        isChecked: data[field.name]?.isChecked ?? false,
+        value,
+      };
+    }),
   };
+
   const form = useForm({
     defaultValues,
     onSubmit: async ({ value }) => {
       console.log("Submitted:", value);
     },
   });
-  // Inside your component
+
   const fieldsState = useStore(form.store, (state) => state.values.fields);
 
   // Calculate sum of checked values
-  const total = fieldsState
-    ?.filter((f) => f.isChecked)
-    .reduce((sum, f) => sum + (parseFloat(f.value) || 0), 0)
-    .toFixed(2);
+  const subSectionTotal = useMemo(() => {
+    if (!fieldsState || !Array.isArray(fieldsState)) return "$0.00";
+  
+    const total = fieldsState.reduce((sum, field) => {
+      if (!field.isChecked) return sum;
+  
+      const cleanedValue = String(field.value).replace(/[^0-9.]/g, ""); // removes $ and commas
+      const numericValue = parseFloat(cleanedValue);
+  
+      return sum + (isNaN(numericValue) ? 0 : numericValue);
+    }, 0);
+  
+    return `$${total.toFixed(2)}`;
+  }, [fieldsState]);
+  
 
   return (
     <>
@@ -51,7 +71,7 @@ export const CostingCard: React.FC<{
             disabled
             id={definition.name}
             className="w-2/5 px-3 py-2 border border-gray-300 rounded-md bg-white text-gray-600"
-            value={total}
+            value={subSectionTotal}
           />
         </div>
 
