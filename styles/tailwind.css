@@ -8,3 +8,9 @@
 @source "../libs/auth/src"; */
 @source "../apps/**";
 @source "../libs/**";
+
+@theme {
+  /* NOTE: Provided hex "#03E21" is not a valid 3/6/8-digit hex. Using "#030E21" as a sensible default. Update if needed. */
+  --color-light-black: #008000;
+  --color-text-black: #000000;
+}
