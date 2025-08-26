@@ -45,7 +45,7 @@ export function DynamicForm({
 
   return (
     <div className=" bg-orange-50 shadow-md rounded-md border border-orange-200 p-7">
-      <h2 className="text-2xl text-custom-black font-semibold mb-6">Project Details</h2>
+      <h2 className="text-2xl font-semibold mb-6">Project Details</h2>
       {/* <div className="bg-orange-50"> */}
         <form
           onSubmit={(e) => {
