@@ -9,8 +9,8 @@ const ELECTRICAL_SECTION_DEFINITION: CostingFormData = {
         label: "Accent Lighting",
       },
       {
-        name: "gateways",
-        label: "Gateways",
+        name: "cashwrap",
+        label: "Cashwrap",
       },
       {
         name: "electricalPanel",
@@ -29,8 +29,8 @@ const ELECTRICAL_SECTION_DEFINITION: CostingFormData = {
         label: "Outlets",
       },
       {
-        name: "gfiTile",
-        label: "GFI Tile #1",
+        name: "CATitle",
+        label: "CA Title 24",
       },
     ],
   };
@@ -69,8 +69,16 @@ const ELECTRICAL_SECTION_DEFINITION: CostingFormData = {
         label: "Floor Preparation",
       },
       {
-        name: "flooring",
-        label: "Flooring",
+        name: "floocuts",
+        label: "Floorcuts",
+      },
+      {
+        name: "salesAreaFlooring",
+        label: "Sales Area Flooring",
+      },
+      {
+        name: "stockroomFlooring",
+        label: "Stockroom Flooring",
       },
     ],
   };
@@ -81,16 +89,16 @@ const ELECTRICAL_SECTION_DEFINITION: CostingFormData = {
     name: "hvac",
     fields: [
       {
-        name: "hvacCompositeSlab",
-        label: "Composite Slab",
+        name: "ductwork",
+        label: "Duct Work",
       },
       {
-        name: "hvacFloorPreparation",
-        label: "Floor Preparation",
+        name: "HVAC",
+        label: "HVAC",
       },
       {
-        name: "hvacFlooring",
-        label: "Flooring",
+        name: "lightStat",
+        label: "Light Stat",
       },
     ],
   };
