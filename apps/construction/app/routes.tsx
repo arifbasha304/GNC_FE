@@ -3,6 +3,7 @@ import { createBrowserRouter, RouteObject } from 'react-router';
 import App from './app';
 import ProjectCostEstimator from './components/project-cost-estimator/project-cost-estimator';
 import ProjectCostEstimatorEdit from './components/project-cost-estimator/edit/index';
+import RecentEstimations from './components/project-cost-estimator/recent-cost-estimatior-list/recent-cost-estimatior-list';
 const routes: RouteObject[] = [
   // {
   //   path: '/',
@@ -19,6 +20,10 @@ const routes: RouteObject[] = [
   {
     path: '/edit',
     element: <ProjectCostEstimatorEdit />,
+  },
+  {
+    path: '/recent-estimations',
+    element: <RecentEstimations />,
   }
 ];
 

@@ -35,7 +35,7 @@ const DESIGN_SECTION_DEFINITION: CostingFormData = {
   // Signage Section
   const SIGNAGE_SECTION_DEFINITION: CostingFormData = {
     label: "Signage",
-    name: "Pre-Construction",
+    name: "signage",
     fields: [
       {
         name: "firstStorefrontSite",
@@ -63,7 +63,7 @@ const DESIGN_SECTION_DEFINITION: CostingFormData = {
   // Fixtures Section
   const FIXTURES_SECTION_DEFINITION: CostingFormData = {
     label: "Fixtures",
-    name: "Pre-Construction",
+    name: "fixtures",
     fields: [
       {
         name: "refacePackage",
@@ -79,7 +79,7 @@ const DESIGN_SECTION_DEFINITION: CostingFormData = {
   // Lighting Materials Section
   const LIGHTING_MATERIALS_SECTION_DEFINITION: CostingFormData = { 
     label: "Lighting Materials",
-    name: "Pre-Construction",
+    name: "lightingMaterials",
     fields: [
       {
         name: "accentLightingPackage",
@@ -95,7 +95,7 @@ const DESIGN_SECTION_DEFINITION: CostingFormData = {
   // Flooring Materials Section
   const FLOORING_MATERIALS_SECTION_DEFINITION: CostingFormData = { 
     label: "Flooring Materials",
-    name: "Pre-Construction",
+    name: "flooringMaterials",
     fields: [
       {
         name: "flooringTile",
@@ -111,7 +111,7 @@ const DESIGN_SECTION_DEFINITION: CostingFormData = {
   // Miscellaneous Section
   const MISCELLANEOUS_SECTION_DEFINITION: CostingFormData = { 
     label: "Miscellaneous",
-    name: "Pre-Construction",
+    name: "miscellaneous",
     fields: [
       {
         name: "firstStorefrontSiteMisc",

@@ -17,13 +17,13 @@ export type CommentsFormData = {
   fields: CommentsFieldType[];
 };
 
-export const CommentsCard: React.FC<{ data: CommentsFormData }> = ({ data }) => {
+export const CommentsCard: React.FC<{ definition: CommentsFormData,  data:any }> = ({ definition, data }) => {
   // Initialize TanStack form
   const form = useForm({
     defaultValues: {
       label: data.label,
-      name: data.name,
-      fields: data.fields.map(() => ({
+      name: definition.name,
+      fields: definition.fields.map(() => ({
         checked: false,
         comment: '',
       })),
@@ -46,14 +46,14 @@ export const CommentsCard: React.FC<{ data: CommentsFormData }> = ({ data }) => 
       {/* Title */}
       <div className="flex justify-between items-center py-5">
         <h2 className="text-2xl font-semibold text-gray-500 capitalize">
-          {data.label}
+        {definition.label}
         </h2>
         <span className="text-gray-600 text-sm">Comments</span>
       </div>
 
       {/* Fields */}
       <div className="space-y-4">
-        {data.fields.map((field, index) => (
+        {definition.fields.map((field, index) => (
           <div className="flex items-center gap-4" key={index}>
             {/* Checkbox field */}
             <form.Field

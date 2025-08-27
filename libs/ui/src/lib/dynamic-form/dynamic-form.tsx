@@ -25,16 +25,18 @@ type DynamicFormProps = {
   fields: FormFieldConfig[];
   onSubmit: (values: Record<string, string>) => void;
   submitButtonText?: string;
+  data:any;
 };
 
 export function DynamicForm({
   fields,
+  data,
   onSubmit,
   submitButtonText = "Submit",
 }: DynamicFormProps) {
   const form = useForm({
     defaultValues: fields.reduce((acc, field) => {
-      acc[field.name] = "";
+      acc[field.name] = data[field.name];
       return acc;
     }, {} as Record<string, string>),
 

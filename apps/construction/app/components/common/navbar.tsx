@@ -7,14 +7,8 @@ const Navbar = ({ submitButtonText, form }: { submitButtonText: string; form: an
       {/* Left Side - Title and Dates */}
       <div className="flex items-center gap-4">
         <div className="flex items-center gap-2 text-gray-700">
-          <CommonButton
-            icon="pi pi-chevron-left"
-            className=""
-          />
-          <CommonButton
-            icon="pi pi-chevron-right"
-            className=""
-          />
+          <CommonButton icon="pi pi-chevron-left"  />
+          <CommonButton icon="pi pi-chevron-right"  />
         </div>
 
         <div>
@@ -22,26 +16,28 @@ const Navbar = ({ submitButtonText, form }: { submitButtonText: string; form: an
             New Estimation
           </h2>
           <p className="text-sm text-gray-500">
-            Feb 18, 2025 &bull; <i>Updated: Feb 24, 2025</i> 
+            Feb 18, 2025 &bull; <i>Updated: Feb 24, 2025</i>
           </p>
         </div>
       </div>
-
-      
       <div className="flex items-center gap-3">
         {/* Icon Buttons */}
-        <CommonButton
+        {/* commenting this search icon after discussing with UX team, alternatively we will navigate back to table for searching  */}
+        {/* <CommonButton
           icon="pi pi-search"
           className="border border-gray-300 rounded-md p-2 w-10 h-10 flex items-center text-center justify-center"
-          />
+          /> */}
         <CommonButton
           icon="pi pi-plus"
-          className="border border-gray-300 rounded-md p-2 w-10 h-10 flex items-center text-center  justify-center"
-          />
+          ariaLabel="Add"
+          className="w-10 h-10 flex items-center justify-center text-2xl leading-none border border-gray-300 rounded-md"
+        />
+
         <CommonButton
           icon="pi pi-download"
-          className="border border-gray-300 rounded-md p-2 w-10 h-10 flex items-center text-center  justify-center"
-          />
+          ariaLabel="Download"
+          className="w-10 h-10 flex items-center justify-center text-2xl leading-none border border-gray-300 rounded-md"
+        />
 
         <CommonButton
           className="flex items-center gap-2 rounded-md bg-[#E31837] text-white border-none hover:bg-[#c2152e] px-4 py-2"
@@ -52,10 +48,7 @@ const Navbar = ({ submitButtonText, form }: { submitButtonText: string; form: an
 
         <div className="h-6 border-l mx-2" />
 
-        <CommonButton
-          icon="pi pi-external-link"
-          className=""
-        />
+        <CommonButton icon="pi pi-external-link" />
       </div>
     </div>
   );
