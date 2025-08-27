@@ -1,5 +1,7 @@
+
 import * as React from "react";
 import { Button } from "primereact/button";
+
 export interface IAppProps {
   value?: string;
   onChange?: (value: string) => void;
@@ -7,18 +9,20 @@ export interface IAppProps {
   onClick?: () => void;
   disabled?: boolean;
   icon?: string;
+  label?: string;
+  ariaLabel?: string;
 }
 
 export default function CommonButton(props: IAppProps) {
   return (
-    <div>
-      <Button
-        icon={props.icon}
-        className={props.className}
-        label={props.value}
-        onClick={props.onClick}
-        unstyled
-      />
-    </div>
+    <Button
+      icon={props.icon}
+      className={props.className}
+      onClick={props.onClick}
+      disabled={props.disabled}
+      aria-label={props.ariaLabel}
+      unstyled
+      label={props.value ?? '\u200B'}
+    />
   );
 }
