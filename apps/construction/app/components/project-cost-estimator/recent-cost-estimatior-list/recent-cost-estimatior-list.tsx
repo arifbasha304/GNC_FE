@@ -1,5 +1,5 @@
 import React from 'react';
-import { TableWrapper } from '@libs/ui'; // Assuming you export TableWrapper there
+import { TableWrapper } from '@libs/ui';
 import { ColumnDef } from '@tanstack/react-table';
 import { recentEstimationsMockData } from '@libs/ui';
 

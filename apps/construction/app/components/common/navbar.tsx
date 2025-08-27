@@ -7,8 +7,8 @@ const Navbar = ({ submitButtonText, form }: { submitButtonText: string; form: an
       {/* Left Side - Title and Dates */}
       <div className="flex items-center gap-4">
         <div className="flex items-center gap-2 text-gray-700">
-          <CommonButton icon="pi pi-chevron-left" className="" />
-          <CommonButton icon="pi pi-chevron-right" className="" />
+          <CommonButton icon="pi pi-chevron-left"  />
+          <CommonButton icon="pi pi-chevron-right"  />
         </div>
 
         <div>
@@ -48,7 +48,7 @@ const Navbar = ({ submitButtonText, form }: { submitButtonText: string; form: an
 
         <div className="h-6 border-l mx-2" />
 
-        <CommonButton icon="pi pi-external-link" className="" />
+        <CommonButton icon="pi pi-external-link" />
       </div>
     </div>
   );
