@@ -15,7 +15,7 @@ module.exports = {
 
   plugins: [
     new ModuleFederationPlugin({
-      name: "construction_app",
+      name: "construction",
       filename: "remoteEntry.js",
       exposes: {
         "./ProjectCostEstimator":
@@ -37,7 +37,8 @@ module.exports = {
     alias: {
       "@libs/ui": path.resolve(__dirname, "../../libs/ui/src"),
       "@libs/auth": path.resolve(__dirname, "../../libs/auth/src"),
-      '@libs/store': path.resolve(__dirname, "../../libs/store/src")
+      '@libs/store': path.resolve(__dirname, "../../libs/store/src"),
+      '@libs/api': path.resolve(__dirname, "../../libs/services/src"),
     },
   },
 

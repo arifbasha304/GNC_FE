@@ -1,6 +1,11 @@
 {
   "files": [],
   "include": [],
+  "compilerOptions": {
+    "composite": true,
+    "declaration": true,
+    "declarationMap": true
+  },
   "references": [
     {
       "path": "./tsconfig.lib.json"
